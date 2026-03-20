@@ -1806,13 +1806,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211238103}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.6830127, y: -0.18301266, z: 0.18301266, w: 0.6830127}
+  m_LocalRotation: {x: 0.9659259, y: -0, z: 0.258819, w: 0}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 90, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: -30, z: 0}
 --- !u!114 &211238106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11126,7 +11126,7 @@ PrefabInstance:
     - target: {fileID: 2734458129744585155, guid: 0b8369fa1a90d3446ae5f2405c8bc02e, type: 3}
       propertyPath: guideAnimator
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2033834789}
     - target: {fileID: 3082874584040621231, guid: 0b8369fa1a90d3446ae5f2405c8bc02e, type: 3}
       propertyPath: pickupSound
       value: 
@@ -18213,13 +18213,14 @@ GameObject:
   - component: {fileID: 2033834788}
   - component: {fileID: 2033834787}
   - component: {fileID: 2033834786}
+  - component: {fileID: 2033834789}
   m_Layer: 5
   m_Name: GarbageGuideImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2033834786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18274,9 +18275,30 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 16}
+  m_AnchoredPosition: {x: 0, y: -921}
   m_SizeDelta: {x: 1200, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &2033834789
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033834785}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 10edf245f78ad8b4882921afc64156ce, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &2034988888 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1025681519537473006, guid: aa99a810914c5b84b9bc5d51f95dd05c, type: 3}
