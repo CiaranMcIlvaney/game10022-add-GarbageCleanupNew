@@ -11,6 +11,7 @@ public class BinController : MonoBehaviour
 
     [Header("Animation")]
     public Animator lidAnimator;
+    public ParticleSystem confettiParticle;
 
     // Called when the player interacts with the bin
     public void TryDeposit(InventoryController inventory)
@@ -41,6 +42,7 @@ public class BinController : MonoBehaviour
         {
             Debug.Log($"SUCCESS! Deposited {currentType.Value} into {acceptedType} bin.");
             ScoreManager.Instance.AddCorrect(currentType.Value);
+            confettiParticle.Play();
         }
 
         // Wrong bin
