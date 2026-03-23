@@ -11,6 +11,7 @@ public class BinController : MonoBehaviour
 
     [Header("Animation")]
     public Animator lidAnimator;
+    public ParticleSystem confettiParticle;
 
     // Called when the player interacts with the bin
     public void TryDeposit(InventoryController inventory)
@@ -41,6 +42,7 @@ public class BinController : MonoBehaviour
         {
             Debug.Log($"SUCCESS! Deposited {currentType.Value} into {acceptedType} bin.");
             ScoreManager.Instance.AddCorrect(currentType.Value);
+            confettiParticle.Play();
         }
 
         // Wrong bin
@@ -48,6 +50,23 @@ public class BinController : MonoBehaviour
         {
             Debug.Log($"FAIL! You tried to deposit {currentType.Value} into {acceptedType} bin.");
             ScoreManager.Instance.AddWrong(currentType.Value);
+        }
+    }
+
+    public void MagnetToGround(LayerMask ground)
+    {
+        RaycastHit hit;
+
+        // Move the bin up so it can raycast to the ground properly
+        transform.position += new Vector3(0, 10, 0);
+
+        // Detect where the ground is and place the bin on it
+        // Also make sure the rotation and position above the ground is correct
+        if (Physics.Raycast(transform.position, -Vector3.up, out hit, Mathf.Infinity, ground))
+        {
+            transform.position = hit.point;
+            transform.rotation = Quaternion.identity;
+            transform.position += new Vector3(0, 0.6f, 0);
         }
     }
 
