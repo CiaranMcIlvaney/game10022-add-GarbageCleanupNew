@@ -51,6 +51,23 @@ public class BinController : MonoBehaviour
         }
     }
 
+    public void MagnetToGround(LayerMask ground)
+    {
+        RaycastHit hit;
+
+        // Move the bin up so it can raycast to the ground properly
+        transform.position += new Vector3(0, 10, 0);
+
+        // Detect where the ground is and place the bin on it
+        // Also make sure the rotation and position above the ground is correct
+        if (Physics.Raycast(transform.position, -Vector3.up, out hit, Mathf.Infinity, ground))
+        {
+            transform.position = hit.point;
+            transform.rotation = Quaternion.identity;
+            transform.position += new Vector3(0, 0.6f, 0);
+        }
+    }
+
     private void OnTriggerEnter(Collider player)
     {
         if (player.gameObject.name == "Player")

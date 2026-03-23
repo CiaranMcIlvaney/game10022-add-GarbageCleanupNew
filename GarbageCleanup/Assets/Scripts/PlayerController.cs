@@ -100,11 +100,25 @@ public class PlayerController : MonoBehaviour
             if (!isHoldingBin) CheckGarbage("moveBin");
             else if (isHoldingBin) // Put down the bin the player is holding
             {
+                // Reset the held bin
                 heldBin.transform.SetParent(GameObject.Find("GarbageBins").transform);
                 heldBin.GetComponent<BoxCollider>().enabled = true;
+
+                // Place the bin nicely on the ground
+                heldBin.GetComponent<BinController>().MagnetToGround(ground);
+
+                // Reset variables related to holding a bin
                 heldBin = null;
                 isHoldingBin = false;
             }
+        }
+
+        // Bin moving handling
+        if (isHoldingBin)
+        {
+            // Keep bin rotated to look at the player while in front of them
+            heldBin.transform.LookAt(gameObject.transform);
+            heldBin.transform.Rotate(0, 90, 0);
         }
 
         // Jumping code
@@ -198,9 +212,17 @@ public class PlayerController : MonoBehaviour
                 // pick up bin if not already holding one
                 if (!isHoldingBin)
                 {
+                    // Set gameobject to picked up bin
                     heldBin = bin.gameObject;
+
+                    // Disable collision
                     heldBin.GetComponent<BoxCollider>().enabled = false;
-                    heldBin.transform.SetParent(playerCamera.transform);
+
+                    // Move bin in front of player
+                    heldBin.transform.SetParent(gameObject.transform);
+                    //heldBin.transform.position += new Vector3(0, 1, 0);
+
+                    // Toggle holding the bin
                     isHoldingBin = !isHoldingBin;
                 }
             }
