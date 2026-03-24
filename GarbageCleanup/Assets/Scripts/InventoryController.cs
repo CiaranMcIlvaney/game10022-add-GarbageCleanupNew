@@ -168,6 +168,35 @@ public class InventoryController : MonoBehaviour
         return gc.data.garbageType;
     }
 
+    public GarbageData? GetCurrentGarbageData()
+    {
+        var item = CurrentItem;
+
+        if (item == null)
+        {
+            return null;
+        }
+
+        var gc = item.GetComponent<GarbageController>();
+
+        if (gc == null)
+        {
+            gc = item.GetComponentInParent<GarbageController>();
+        }
+
+        if (gc == null)
+        {
+            gc = item.GetComponentInChildren<GarbageController>(true);
+        }
+
+        if (gc == null)
+        {
+            return null;
+        }
+
+        return gc.data;
+    }
+
     // Returns the name of the GameObject (For debugging)
     private string GetItemName(GameObject item)
     {
