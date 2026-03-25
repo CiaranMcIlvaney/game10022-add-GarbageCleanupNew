@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         currentTimeRemaining = maxTime;
-        skyLight.transform.Rotate(200, -900, 180);
+        skyLight.transform.Rotate(160, -900, 180);
     }
 
     // Update is called once per frame
@@ -45,6 +45,6 @@ public class GameManager : MonoBehaviour
         timerText.text = $"Time: {gameTimeString}";
 
         // Change light rotation based on the current time of day
-        skyLight.transform.Rotate(Vector3.left, 1 * Time.deltaTime);
+        skyLight.transform.Rotate(Vector3.left, 0.5f * Time.deltaTime);
     }
 }

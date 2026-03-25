@@ -10,7 +10,7 @@ public class RandomGarbageSpawner : MonoBehaviour
 
     [SerializeField] private List<GameObject> wastePrefabs = new();
     [SerializeField] private List<GameObject> recyclablePrefabs = new();
-    [SerializeField] private List<GameObject> textilePrfabs = new();
+    [SerializeField] private List<GameObject> textilePrefabs = new();
     [SerializeField] private List<GameObject> electronicPrefabs = new();
 
     [Header("Spawn Chances")]
@@ -161,9 +161,9 @@ public class RandomGarbageSpawner : MonoBehaviour
         roll -= recyclableChance;
 
         // Paper randomizer
-        if (roll < textileChance && textilePrfabs.Count > 0)
+        if (roll < textileChance && textilePrefabs.Count > 0)
         {
-            return textilePrfabs[Random.Range(0, textilePrfabs.Count)];
+            return textilePrefabs[Random.Range(0, textilePrefabs.Count)];
         }
             
         roll -= textileChance;
