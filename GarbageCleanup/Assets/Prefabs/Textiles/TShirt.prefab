@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TShirt
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cf47cd98e847f0044b3f54e595a13c7e, type: 3}
+      propertyPath: m_TagString
+      value: Garbage
+      objectReference: {fileID: 0}
     - target: {fileID: 2379083007508517493, guid: cf47cd98e847f0044b3f54e595a13c7e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -92,6 +96,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cf47cd98e847f0044b3f54e595a13c7e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8947900964033913715}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cf47cd98e847f0044b3f54e595a13c7e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8016258549032047256}
   m_SourcePrefab: {fileID: 100100000, guid: cf47cd98e847f0044b3f54e595a13c7e, type: 3}
 --- !u!1 &2903951768241904917 stripped
 GameObject:
@@ -119,3 +126,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.078084394, y: 0.88761747, z: 0.5649109}
   m_Center: {x: 0.11472579, y: 0.7410544, z: 0.1489614}
+--- !u!114 &8016258549032047256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2903951768241904917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78210522a28dffc4497f30e8b9de3d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+    garbageType: 2
+    icon: {fileID: 0}
+    displayName: 
+    wrongBinExplanation: 

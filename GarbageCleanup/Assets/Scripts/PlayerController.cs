@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Jumping code
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && rb.velocity.y <= 1f)
         {
             Jump();
             isGrounded = false;
@@ -155,16 +155,36 @@ public class PlayerController : MonoBehaviour
 
     private bool IsPlayerGrounded()
     {
-        if (Physics.BoxCast(transform.position, boxSize, -transform.up, transform.rotation, 1f, ground))
+        // Start above the players feet 
+        Vector3 rayStart = transform.position + Vector3.up * 0.1f;
+
+        float rayDistance = 1.15f;
+
+        if (Physics.Raycast(rayStart, Vector3.down, out RaycastHit hit, rayDistance, ground))
         {
-            return true;
+            float slope = Vector3.Angle(hit.normal, Vector3.up);
+            Debug.Log("Ground hit: " + hit.collider.name + " | Slope: " + slope + " | Distance: " + hit.distance);
+
+            return slope < 80f;
         }
 
+        Debug.Log("NO GROUND HIT");
         return false;
     }
 
     private void Jump()
     {
+        // Get current velocity
+        Vector3 velocity = rb.velocity;
+
+        // If already going up remove upward force first
+        if (velocity.y > 0)
+        {
+            velocity.y = 0f;
+        }
+
+        rb.velocity = velocity;
+
         // Make the player jump
         rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
     }

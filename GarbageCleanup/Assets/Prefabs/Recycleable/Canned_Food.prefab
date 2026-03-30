@@ -205,3 +205,5 @@ MonoBehaviour:
   data:
     garbageType: 1
     icon: {fileID: 21300000, guid: 753fe49ebaca3e54881082eb6139f60f, type: 3}
+    displayName: 
+    wrongBinExplanation: 
