@@ -4941,7 +4941,6 @@ MonoBehaviour:
   wastePrefabs:
   - {fileID: 3629521975092546876, guid: e546cd6c2544fd844bdb5d754081c795, type: 3}
   - {fileID: 8951270325123406259, guid: 53faff27c5ffa424b91265ed29ef3f21, type: 3}
-  - {fileID: 5160023060867741061, guid: 9e8a247ca5e37f3498995e867fbdd787, type: 3}
   recyclablePrefabs:
   - {fileID: 335959293432150613, guid: 1c59668071914da4bbfbb93dd7e5132f, type: 3}
   - {fileID: 5534215831294603694, guid: acdb6daace39eb04da80a35a9ade642d, type: 3}
@@ -4950,6 +4949,7 @@ MonoBehaviour:
   - {fileID: 2533839907394124749, guid: 7e2f879184dbcd04a88fb963ef472f8f, type: 3}
   - {fileID: 8156583129572680380, guid: 3c56684a0f5aa4740a950e6e0679a2af, type: 3}
   - {fileID: 7865365435499255444, guid: 06e9672d7ac4d2b4b903e976f10584da, type: 3}
+  - {fileID: 5160023060867741061, guid: 9e8a247ca5e37f3498995e867fbdd787, type: 3}
   textilePrefabs:
   - {fileID: 5193736807249169751, guid: 3f6c9428799997a408711f8db3ef5274, type: 3}
   - {fileID: 7905601935939450681, guid: 71183cc4b7d159f418de7bcb803f032c, type: 3}
