@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClothesPile
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 96a5beba2847efd49aac67cbb0596ae7, type: 3}
+      propertyPath: m_TagString
+      value: Garbage
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -75,6 +79,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 96a5beba2847efd49aac67cbb0596ae7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2761843431083156166}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 96a5beba2847efd49aac67cbb0596ae7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -8324048291613283553}
   m_SourcePrefab: {fileID: 100100000, guid: 96a5beba2847efd49aac67cbb0596ae7, type: 3}
 --- !u!1 &7060616628660699850 stripped
 GameObject:
@@ -103,3 +110,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1711513898764296127, guid: 96a5beba2847efd49aac67cbb0596ae7, type: 3}
+--- !u!114 &-8324048291613283553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7060616628660699850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78210522a28dffc4497f30e8b9de3d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+    garbageType: 2
+    icon: {fileID: 0}
+    displayName: 
+    wrongBinExplanation: 

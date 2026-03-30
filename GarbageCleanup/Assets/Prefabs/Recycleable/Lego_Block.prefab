@@ -64,8 +64,62 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lego_Block
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 55b3dd8ae5963564d84889d822590828, type: 3}
+      propertyPath: m_TagString
+      value: Garbage
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 55b3dd8ae5963564d84889d822590828, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -248786094705339338}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 55b3dd8ae5963564d84889d822590828, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -7684587848345685883}
   m_SourcePrefab: {fileID: 100100000, guid: 55b3dd8ae5963564d84889d822590828, type: 3}
+--- !u!1 &4201608486080943176 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 55b3dd8ae5963564d84889d822590828, type: 3}
+  m_PrefabInstance: {fileID: 3931208690884028697}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &-248786094705339338
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4201608486080943176}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7043148843537710596, guid: 55b3dd8ae5963564d84889d822590828, type: 3}
+--- !u!114 &-7684587848345685883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4201608486080943176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78210522a28dffc4497f30e8b9de3d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+    garbageType: 0
+    icon: {fileID: 0}
+    displayName: 
+    wrongBinExplanation: 
