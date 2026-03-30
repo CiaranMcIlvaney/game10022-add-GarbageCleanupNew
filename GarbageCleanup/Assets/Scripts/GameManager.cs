@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
         string gameTimeString = string.Format("{0:0}:{1:00}", minutes, seconds);
 
         // Display time left
-        timerText.text = $"Time: {gameTimeString}";
+        timerText.text = $"{gameTimeString}";
 
         // Change light rotation based on the current time of day
         skyLight.transform.Rotate(Vector3.left, 1 * Time.deltaTime);

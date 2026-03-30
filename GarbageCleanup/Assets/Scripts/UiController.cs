@@ -14,10 +14,6 @@ public class UiController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI recyclableText;
     [SerializeField] private TextMeshProUGUI textileText;
     [SerializeField] private TextMeshProUGUI electronicText;
-
-    [Header("TEMPORARY PLAYTEST TUTORIAL")]
-    [SerializeField] private TextMeshProUGUI tempText;
-    bool textToggle; 
     void Update()
     {
         // Score
@@ -32,20 +28,5 @@ public class UiController : MonoBehaviour
         recyclableText.text = $"{ScoreManager.Instance.Correct[Garbage.Recyclable]}";
         textileText.text = $"{ScoreManager.Instance.Correct[Garbage.Textile]}";
         electronicText.text = $"{ScoreManager.Instance.Correct[Garbage.Electronic]}";
-
-        // Playtest Tutorial
-
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            textToggle = !textToggle;
-        }
-        if (textToggle)
-        {
-            tempText.text = $"WASD to Move    \r\nClick Trash to Collect\r\nClick Bin to Deposit\r\nScroll to Switch Selected Trash\r\nSpace to Jump";
-        }
-        if (!textToggle)
-        {
-            tempText.text = $""; 
-        }
     }
 }
