@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RandomGarbageSpawner : MonoBehaviour
@@ -67,7 +68,13 @@ public class RandomGarbageSpawner : MonoBehaviour
 
         int spawned = 0; // How many objects successfully spawned 
         int attempts = 0; // How many times tried to find position
-        
+
+        // Debug numbers for checking spawn randomizer 
+        int wasteSpawned = 0;
+        int recyclableSpawned = 0;
+        int textileSpawned = 0;
+        int electronicSpawned = 0;
+
         // Prevents infinite loops if spacing is too strict
         int maxAttempts = spawnCount * 50;
 
@@ -116,8 +123,48 @@ public class RandomGarbageSpawner : MonoBehaviour
             // Choose a random garbage object from the list
             GameObject prefab = PickedBiasedPrefab();
 
+            if (prefab == null)
+            {
+                continue;
+            }
+
+            // Try to get the GarbageController from the prefab
+            GarbageController gc = prefab.GetComponent<GarbageController>();
+
+            // If the prefab has garbage data attached to it
+            if (gc != null)
+            {
+                // Check what type of garbage this prefab is
+                switch (gc.data.garbageType)
+                {
+                    case Garbage.Waste:
+                        // Increase the count of waste items spawned 
+                        wasteSpawned++;
+                        break;
+
+                    case Garbage.Recyclable:
+                        // Increase count of recyclable items spawned 
+                        recyclableSpawned++;
+                        break;
+
+                    case Garbage.Textile:
+                        // Increase count of textile items spawned
+                        textileSpawned++; 
+                        break;
+
+                    case Garbage.Electronic:
+                        // Increase count of electronics items spawned 
+                        electronicSpawned++;
+                        break;
+                }
+            }
+
+            // Randomize Y rotation on objects
+            Quaternion randomYRotation = Quaternion.Euler(0f, Random.Range(0f, 300f), 0);
+            Quaternion finalRotation = randomYRotation * prefab.transform.rotation;
+
             // Spawn it at the position
-            Instantiate(prefab, spawnPos, Quaternion.Euler(0f, Random.Range(0f, 360f), 0f), transform);
+            Instantiate(prefab, spawnPos, finalRotation, transform);
 
             // Save this position so we can check spacing next time
             usedPositions.Add(spawnPos);
@@ -126,6 +173,9 @@ public class RandomGarbageSpawner : MonoBehaviour
 
         // Tell TrashProgress class how many items were spawned in
         TrashProgress.SetTotal(spawned);
+
+        // How many of each spawned
+        Debug.Log($"Spawned Results -> Waste: {wasteSpawned}, Recyclable: {recyclableSpawned}, Textile: {textileSpawned}, Electronic: {electronicSpawned}");
     }
 
     // Clear Function
@@ -140,39 +190,83 @@ public class RandomGarbageSpawner : MonoBehaviour
 
     private GameObject PickedBiasedPrefab()
     {
-        float roll = Random.value;
+        // Stores the total chance of all valid catergories
+        float totalChance = 0f;
 
-        // Waste randomizer
-        if (roll < wasteChance && wastePrefabs.Count > 0)
+        // Only add chance if that category actually has prefabs assignned
+        if (wastePrefabs.Count > 0)
         {
-            return wastePrefabs[Random.Range(0, wastePrefabs.Count)];
+            totalChance += wasteChance;
         }
-            
-        roll -= wasteChance;
 
-        // Plastic randomizer
-        if (roll < recyclableChance && recyclablePrefabs.Count > 0)
+        if (recyclablePrefabs.Count > 0)
         {
-            return recyclablePrefabs[Random.Range(0, recyclablePrefabs.Count)];
+            totalChance += recyclableChance;
         }
-           
-        roll -= recyclableChance;
 
-        // Paper randomizer
-        if (roll < textileChance && textilePrefabs.Count > 0)
+        if (textilePrefabs.Count > 0)
         {
-            return textilePrefabs[Random.Range(0, textilePrefabs.Count)];
+            totalChance += textileChance;
         }
-            
-        roll -= textileChance;
 
-        // Electronics randomizer
         if (electronicPrefabs.Count > 0)
         {
-            return electronicPrefabs[Random.Range(0, electronicPrefabs.Count)];
+            totalChance += electronicChance;
         }
 
-        // Safety fallback
+        // Pick random number between 0 and the total chance 
+        float roll = Random.Range(0f, totalChance);
+
+        // Check if the roll falls into the waste category
+        if (wastePrefabs.Count > 0)
+        {
+            if (roll < wasteChance)
+            {
+                // Return a random waste prefab
+                return wastePrefabs[Random.Range(0, wastePrefabs.Count)];
+            }
+
+            // If not selected subtract waste chance and move to next category
+            roll -= wasteChance;
+        }
+
+        // Check recyclable category
+        if (recyclablePrefabs.Count > 0)
+        {
+            if (roll < recyclableChance)
+            {
+                // Return a random recyclable prefab
+                return recyclablePrefabs[Random.Range(0, recyclablePrefabs.Count)];
+            }
+
+            // Move to next category
+            roll -= recyclableChance;
+        }
+
+        // Check textile category
+        if (textilePrefabs.Count > 0)
+        {
+            if (roll < textileChance)
+            {
+                // Return a random textile prefab
+                return textilePrefabs[Random.Range(0, textilePrefabs.Count)];
+            }
+
+            // Move to next category
+            roll -= textileChance;
+        }
+
+        // Check electronic category
+        if (electronicPrefabs.Count > 0)
+        {
+            if (roll < electronicChance)
+            {
+                // Return a random electronic prefab
+                return electronicPrefabs[Random.Range(0, electronicPrefabs.Count)];
+            }
+        }
+
+        // Fallback incase something goes wrong (it shouldnt)
         return null;
     }
 }

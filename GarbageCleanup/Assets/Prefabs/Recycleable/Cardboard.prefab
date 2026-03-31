@@ -124,5 +124,5 @@ MonoBehaviour:
   data:
     garbageType: 1
     icon: {fileID: 0}
-    displayName: 
-    wrongBinExplanation: 
+    displayName: Cardboard
+    wrongBinExplanation: cardboard can be broken down and reused.

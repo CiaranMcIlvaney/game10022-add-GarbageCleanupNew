@@ -30,6 +30,11 @@ public class InventoryController : MonoBehaviour
     // Lets UI know which slot is selected
     public int SelectedIndex => selectedIndex;
 
+    [Header("UI")]
+    [SerializeField] private GameObject inventoryFullText;
+
+    private Coroutine inventoryFullRoutine;
+
     [Header("Audio")]
 
     [SerializeField] private AudioSource pickupSound;
@@ -77,6 +82,9 @@ public class InventoryController : MonoBehaviour
         if (IsFull)
         {
             Debug.Log("[Inventory] Backpack full (max 5). Can't pick up.");
+
+            ShowInventoryFullMessage();
+
             return false;
         }
 
@@ -212,5 +220,26 @@ public class InventoryController : MonoBehaviour
         }
 
         return (gc != null) ? $"{item.name} [{gc.data.garbageType}]" : item.name;
+    }
+
+    private void ShowInventoryFullMessage()
+    {
+        // If message is already playing stop it and restart it
+        if (inventoryFullRoutine != null)
+        {
+            StopCoroutine(inventoryFullRoutine);
+        }
+
+        inventoryFullRoutine = StartCoroutine(ShowInventoryFullRoutine());
+    }    
+
+    private IEnumerator ShowInventoryFullRoutine()
+    {
+        inventoryFullText.SetActive(true);
+
+        yield return new WaitForSeconds(1.5f);
+
+        inventoryFullText.SetActive(false);
+        inventoryFullRoutine = null;
     }
 }

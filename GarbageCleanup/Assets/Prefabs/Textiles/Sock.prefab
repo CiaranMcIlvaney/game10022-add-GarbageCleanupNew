@@ -124,5 +124,5 @@ MonoBehaviour:
   data:
     garbageType: 2
     icon: {fileID: 0}
-    displayName: 
-    wrongBinExplanation: 
+    displayName: Sock
+    wrongBinExplanation: fabric materials can be reused or recycled.

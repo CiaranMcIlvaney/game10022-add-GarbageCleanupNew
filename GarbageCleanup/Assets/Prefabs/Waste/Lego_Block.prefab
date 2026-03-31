@@ -65,6 +65,10 @@ PrefabInstance:
       value: Lego_Block
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 55b3dd8ae5963564d84889d822590828, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 55b3dd8ae5963564d84889d822590828, type: 3}
       propertyPath: m_TagString
       value: Garbage
       objectReference: {fileID: 0}
@@ -74,7 +78,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 55b3dd8ae5963564d84889d822590828, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -248786094705339338}
+      addedObject: {fileID: 8732781843280727056}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 55b3dd8ae5963564d84889d822590828, type: 3}
       insertIndex: -1
       addedObject: {fileID: -7684587848345685883}
@@ -84,8 +88,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 55b3dd8ae5963564d84889d822590828, type: 3}
   m_PrefabInstance: {fileID: 3931208690884028697}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &-248786094705339338
-MeshCollider:
+--- !u!65 &8732781843280727056
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -102,10 +106,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 7043148843537710596, guid: 55b3dd8ae5963564d84889d822590828, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.03186211, y: 0.011612111, z: 0.015862113}
+  m_Center: {x: 0, y: 0.005775503, z: 0}
 --- !u!114 &-7684587848345685883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,5 +124,6 @@ MonoBehaviour:
   data:
     garbageType: 0
     icon: {fileID: 0}
-    displayName: 
-    wrongBinExplanation: 
+    displayName: Lego Block
+    wrongBinExplanation: plastic toys cannot be recycled through standard recycling
+      systems.

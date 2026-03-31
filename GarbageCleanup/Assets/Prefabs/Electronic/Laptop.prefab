@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 8736406583022618831}
   m_Layer: 7
   m_Name: Laptop
-  m_TagString: Untagged
+  m_TagString: Garbage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -322,6 +322,8 @@ MonoBehaviour:
   data:
     garbageType: 3
     icon: {fileID: 21300000, guid: bc82e54a475ef5f40a3ecc17aecbb29b, type: 3}
+    displayName: Laptops
+    wrongBinExplanation: electronics contain components that require special recycling.
 --- !u!1 &5619714221270957984
 GameObject:
   m_ObjectHideFlags: 0

@@ -132,5 +132,6 @@ MonoBehaviour:
   data:
     garbageType: 3
     icon: {fileID: 0}
-    displayName: 
-    wrongBinExplanation: 
+    displayName: Phones
+    wrongBinExplanation: electronic devices must be processed seperately from regular
+      waste.

@@ -65,8 +65,20 @@ PrefabInstance:
       value: Shoe
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cda9adeb5ffb4b344af99d38a54a78e8, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cda9adeb5ffb4b344af99d38a54a78e8, type: 3}
       propertyPath: m_TagString
       value: Garbage
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442731350029704926, guid: cda9adeb5ffb4b344af99d38a54a78e8, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4360603143418417902, guid: cda9adeb5ffb4b344af99d38a54a78e8, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4599376357761443754, guid: cda9adeb5ffb4b344af99d38a54a78e8, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -85,7 +97,7 @@ PrefabInstance:
       addedObject: {fileID: -6048299222153614872}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cda9adeb5ffb4b344af99d38a54a78e8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5730231766103641642}
+      addedObject: {fileID: 804997904287122806}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cda9adeb5ffb4b344af99d38a54a78e8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2731477440653015142}
@@ -137,8 +149,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5730231766103641642
-MeshCollider:
+--- !u!65 &804997904287122806
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -155,10 +167,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
+  serializedVersion: 3
+  m_Size: {x: 0.29823303, y: 0.15386438, z: 0.25416183}
+  m_Center: {x: 0.007980347, y: 0.047314882, z: 0.025007248}
 --- !u!114 &2731477440653015142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,5 +185,5 @@ MonoBehaviour:
   data:
     garbageType: 2
     icon: {fileID: 0}
-    displayName: 
-    wrongBinExplanation: 
+    displayName: Shoes
+    wrongBinExplanation: clothing items can be reused or repurposed.

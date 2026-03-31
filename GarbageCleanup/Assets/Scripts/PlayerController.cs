@@ -163,7 +163,6 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(rayStart, Vector3.down, out RaycastHit hit, rayDistance, ground))
         {
             float slope = Vector3.Angle(hit.normal, Vector3.up);
-            Debug.Log("Ground hit: " + hit.collider.name + " | Slope: " + slope + " | Distance: " + hit.distance);
 
             return slope < 80f;
         }
