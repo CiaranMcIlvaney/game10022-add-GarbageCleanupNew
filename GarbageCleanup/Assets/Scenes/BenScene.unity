@@ -1847,7 +1847,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4943396, g: 0.47288713, b: 0.47288713, a: 1}
+  m_Color: {r: 0.21960786, g: 0.2901961, b: 0.21568629, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2753,6 +2753,53 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: daf661d478fbcbf4791f00721500cb43, type: 3}
+--- !u!1 &281492492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 281492494}
+  - component: {fileID: 281492493}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &281492493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281492492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0f8e013ab6a5d4e93acaf249dcd7cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTimeRemaining: 10
+  timerText: {fileID: 549796915}
+  skyLight: {fileID: 211238104}
+--- !u!4 &281492494
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281492492}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1186.6403, y: 653.08246, z: -987.61786}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &286508430 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1025681519537473006, guid: aa99a810914c5b84b9bc5d51f95dd05c, type: 3}
@@ -6119,69 +6166,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1025681519537473006, guid: aa99a810914c5b84b9bc5d51f95dd05c, type: 3}
   m_PrefabInstance: {fileID: 1534650842}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &623130632
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 623130634}
-  - component: {fileID: 623130633}
-  m_Layer: 0
-  m_Name: GarbageSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &623130633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 623130632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff0858b4d17fe5e4299f49249f0a05e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wastePrefabs:
-  - {fileID: 8156583129572680380, guid: 1dc60c5091cd72e4991732fcf5ab9226, type: 3}
-  recyclablePrefabs: []
-  textilePrfabs: []
-  electronicPrefabs:
-  - {fileID: 2275073779294990670, guid: 66c8560f9b9264b4f942b293bd23e886, type: 3}
-  wasteChance: 0.35
-  recyclableChance: 0.35
-  textileChance: 0.25
-  electronicChance: 0.05
-  spawnCount: 1000
-  areaCenter: {x: 185.71, y: 10, z: 266.08}
-  areaSize: {x: 175, y: 154}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 256
-  rayStartHeight: 200
-  yOffset: 0.02
-  minDistanceBetween: 1.5
---- !u!4 &623130634
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 623130632}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 270.8685, y: 33.74066, z: 265.3872}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &627192293 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1025681519537473006, guid: aa99a810914c5b84b9bc5d51f95dd05c, type: 3}
@@ -7164,6 +7148,77 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acceptedType: 2
   lidAnimator: {fileID: 0}
+--- !u!1 &779139925
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 779139927}
+  - component: {fileID: 779139926}
+  m_Layer: 0
+  m_Name: GarbageSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &779139926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779139925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff0858b4d17fe5e4299f49249f0a05e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wastePrefabs:
+  - {fileID: 3629521975092546876, guid: e546cd6c2544fd844bdb5d754081c795, type: 3}
+  - {fileID: 7500962755059852625, guid: 8367cda370fc8874f86d6846ad86e84e, type: 3}
+  recyclablePrefabs:
+  - {fileID: 335959293432150613, guid: 1c59668071914da4bbfbb93dd7e5132f, type: 3}
+  - {fileID: 5534215831294603694, guid: acdb6daace39eb04da80a35a9ade642d, type: 3}
+  - {fileID: 3096596856600033354, guid: fb3331b0a1f6faf45a3aaa18e24c0ba4, type: 3}
+  - {fileID: 3247323833296297771, guid: dcc1a47e1e13bf840942682278fac5c0, type: 3}
+  - {fileID: 2533839907394124749, guid: 7e2f879184dbcd04a88fb963ef472f8f, type: 3}
+  - {fileID: 4492577343849647588, guid: abe798d875b634c49ad39202fc0457fa, type: 3}
+  - {fileID: 8156583129572680380, guid: 3c56684a0f5aa4740a950e6e0679a2af, type: 3}
+  textilePrfabs: []
+  electronicPrefabs:
+  - {fileID: 2275073779294990670, guid: 66c8560f9b9264b4f942b293bd23e886, type: 3}
+  wasteChance: 0.35
+  recyclableChance: 0.35
+  textileChance: 0.25
+  electronicChance: 0.05
+  spawnCount: 1000
+  areaCenter: {x: 185.71, y: 10, z: 266.08}
+  areaSize: {x: 175, y: 154}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 256
+  rayStartHeight: 200
+  yOffset: 0.02
+  minDistanceBetween: 1.5
+--- !u!4 &779139927
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779139925}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 270.8685, y: 33.74066, z: 265.3872}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &789570479 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7462569862156873362, guid: 1aba0fbf10ced5447ad5eb30f4652084, type: 3}
@@ -7616,7 +7671,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4943396, g: 0.47288713, b: 0.47288713, a: 1}
+  m_Color: {r: 0.21960786, g: 0.28627452, b: 0.21960786, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -13572,7 +13627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4943396, g: 0.47288713, b: 0.47288713, a: 1}
+  m_Color: {r: 0.21960786, g: 0.28627452, b: 0.21960786, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -15164,7 +15219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4943396, g: 0.47288713, b: 0.47288713, a: 1}
+  m_Color: {r: 0.21960786, g: 0.28627452, b: 0.21960786, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -17941,7 +17996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4943396, g: 0.47288713, b: 0.47288713, a: 1}
+  m_Color: {r: 0.21960786, g: 0.28627452, b: 0.21960786, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -18061,8 +18116,9 @@ SceneRoots:
   - {fileID: 1612800407}
   - {fileID: 603587052}
   - {fileID: 1732436914}
-  - {fileID: 623130634}
   - {fileID: 1153500324}
   - {fileID: 1640878069}
   - {fileID: 1146088853}
   - {fileID: 813583032}
+  - {fileID: 281492494}
+  - {fileID: 779139927}
