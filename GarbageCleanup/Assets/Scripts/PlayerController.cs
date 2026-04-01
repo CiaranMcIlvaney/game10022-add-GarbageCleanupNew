@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public Camera playerCamera;
     public LayerMask garbage;
     private Vector3 boxSize = new Vector3(0.5f, 0.3f, 0.5f);
+    public TextMeshProUGUI garbageNamePopup;
     //private float sphereRadius = 10f;
 
     [Header("Poker")]
@@ -62,6 +63,9 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         isGrounded = IsPlayerGrounded();
+
+        //CheckIfGarbageIsNear();
+        CheckGarbage("namePopup");
 
         // On left click, check if player is close enough to garbage/bins and not holding a bin
         if (Input.GetMouseButtonDown(0) && !isHoldingBin)
@@ -193,21 +197,34 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
 
         // Raycast forward to find garbage
-        if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, pokerRange, garbage) && interaction.Equals("poker"))
+        if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, pokerRange, garbage) && (interaction.Equals("poker") || interaction.Equals("namePopup")))
         {
-            if (inventory == null)
+            if (interaction.Equals("poker"))
             {
-                Debug.LogError("InventoryController not assigned on PlayerController.");
+                if (inventory == null)
+                {
+                    Debug.LogError("InventoryController not assigned on PlayerController.");
+                    return;
+                }
+
+                // Try add to inventory instead of destroying
+                bool added = inventory.TryAdd(hit.collider.gameObject);
+
+                // If you still want score for pickup, do it here (optional)
+                // if (added) score++;
+
                 return;
             }
+            else if (interaction.Equals("namePopup"))
+            {
+                string garbageNameTrimmed = hit.collider.gameObject.name;
+                Debug.Log("Length: " + garbageNameTrimmed.Length);
+                Debug.Log("Char at length - 1: " + garbageNameTrimmed.);
+                Debug.Log("Char at length - 7: " + garbageNameTrimmed.Length);
+                //garbageNameTrimmed.Remove(garbageNameTrimmed.Length - 1, garbageNameTrimmed.Length - 7);
 
-            // Try add to inventory instead of destroying
-            bool added = inventory.TryAdd(hit.collider.gameObject);
-
-            // If you still want score for pickup, do it here (optional)
-            // if (added) score++;
-
-            return;
+                garbageNamePopup.text = garbageNameTrimmed;
+            }
         }
 
         // If we didn't hit garbage, we can check bins with the same left click
@@ -247,7 +264,20 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    private void CheckIfGarbageIsNear()
+    {
+        var colliders = Physics.OverlapSphere(transform.position, 10f);
+        foreach (var collider in colliders)
+        {
+            if (collider.gameObject.tag == "Garbage")
+            {
+                // Add colour/material changing
+                //Destroy(collider.gameObject);
+                //transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
 
+            }
+        }
+    }
     private void ToggleGuide()
     {
         if (!isGuideEnabled)
