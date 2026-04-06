@@ -176,6 +176,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
     garbageType: 1
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 2a3bdfada3bf29848ba5aaf88d31886a, type: 3}
     displayName: Book
     wrongBinExplanation: it is made of paper that can be processed and reused.

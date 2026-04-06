@@ -184,6 +184,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
     garbageType: 2
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: f61b15a08e5463642990cab75ead44b3, type: 3}
     displayName: Shoes
     wrongBinExplanation: clothing items can be reused or repurposed.

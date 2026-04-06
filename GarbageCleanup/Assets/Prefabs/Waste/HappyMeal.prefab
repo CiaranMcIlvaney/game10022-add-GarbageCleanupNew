@@ -194,6 +194,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
     garbageType: 0
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 0eca40aa438d5cd438eb3c55332c5f44, type: 3}
     displayName: Happy Meal Box
     wrongBinExplanation: food residue makes it non-recyclable.

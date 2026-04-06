@@ -160,6 +160,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
     garbageType: 1
-    icon: {fileID: 21300000, guid: 7c5aaf37361afdc44865a385abec59cc, type: 3}
+    icon: {fileID: 21300000, guid: 305c8d0101695924685061aff71cb92a, type: 3}
     displayName: Soda Can
     wrongBinExplanation: aluminum cans can be melted down and reused.

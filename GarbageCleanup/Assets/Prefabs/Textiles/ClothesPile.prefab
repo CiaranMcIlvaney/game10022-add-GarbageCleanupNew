@@ -128,6 +128,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
     garbageType: 2
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: dcbf3e61704deb844931be5916c6b91f, type: 3}
     displayName: Clothes Pile
     wrongBinExplanation: clothing items can be reused or repurposed.

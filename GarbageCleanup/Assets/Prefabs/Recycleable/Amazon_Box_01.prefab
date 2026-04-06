@@ -191,6 +191,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
     garbageType: 1
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 7d865bd4576ec6f42b4055a6d32f2ba2, type: 3}
     displayName: Amazon Box
     wrongBinExplanation: cardboard packaging can be broken down and reused.

@@ -204,6 +204,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
     garbageType: 1
-    icon: {fileID: 21300000, guid: 753fe49ebaca3e54881082eb6139f60f, type: 3}
+    icon: {fileID: 21300000, guid: aa9d9443d195991438d15e3631432ea9, type: 3}
     displayName: Dirty Cans
     wrongBinExplanation: metals can be processed and reused.

@@ -148,6 +148,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
     garbageType: 2
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 9bbc5512f7a2a414a8593d16d02e0d1a, type: 3}
     displayName: T-shirt
     wrongBinExplanation: clothing can be reused or repurposed.
