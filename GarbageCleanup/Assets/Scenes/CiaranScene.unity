@@ -10086,6 +10086,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2264817570606626727, guid: 0b8369fa1a90d3446ae5f2405c8bc02e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1607297485}
+    - targetCorrespondingSourceObject: {fileID: 2264817570606626727, guid: 0b8369fa1a90d3446ae5f2405c8bc02e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1607297492}
   m_SourcePrefab: {fileID: 100100000, guid: 0b8369fa1a90d3446ae5f2405c8bc02e, type: 3}
 --- !u!1001 &1228495127
 PrefabInstance:
@@ -12944,6 +12947,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7728131643843838427, guid: 0b8369fa1a90d3446ae5f2405c8bc02e, type: 3}
   m_PrefabInstance: {fileID: 1224999499}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1607297492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8713411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c42c210dd6e0764d99be9c0dbfb58dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Grass_footsteps_new: {fileID: 1646096718}
+  minPitch: 0.8
+  maxPitch: 1.1
 --- !u!1 &1608042317
 GameObject:
   m_ObjectHideFlags: 0
@@ -13340,14 +13358,14 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1646096716}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: acca958dabd7cfa4483ca0fd21da9e97, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: c545c6ac11ae9774999f5616ab58cb28, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.785
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
