@@ -123,6 +123,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
     garbageType: 0
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: b01eb22a90f845343ba8bb01356242c3, type: 3}
     displayName: Garbage Bag
     wrongBinExplanation: it contains mixed or non-recyclable materials.

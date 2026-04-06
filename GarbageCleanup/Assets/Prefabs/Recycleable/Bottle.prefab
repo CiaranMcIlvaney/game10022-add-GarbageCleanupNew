@@ -122,6 +122,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
     garbageType: 1
-    icon: {fileID: 21300000, guid: 6e4b3ca9cd15bf24a98b9f42cf70c0a1, type: 3}
+    icon: {fileID: 21300000, guid: e8ffcfa9103c6744d8411c4e9346aea9, type: 3}
     displayName: Bottle
     wrongBinExplanation: plastic bottles can be processed and reused.

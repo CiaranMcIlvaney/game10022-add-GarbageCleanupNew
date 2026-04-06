@@ -123,6 +123,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
     garbageType: 2
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 3db7550afaef0434980eaf5258acebfb, type: 3}
     displayName: Shorts
     wrongBinExplanation: clothing materials can be reused or repurposed.

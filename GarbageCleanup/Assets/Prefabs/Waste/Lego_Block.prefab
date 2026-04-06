@@ -123,7 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
     garbageType: 0
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: b7615c50ea2ab2e4b80cf85c3c358ee6, type: 3}
     displayName: Lego Block
     wrongBinExplanation: plastic toys cannot be recycled through standard recycling
       systems.

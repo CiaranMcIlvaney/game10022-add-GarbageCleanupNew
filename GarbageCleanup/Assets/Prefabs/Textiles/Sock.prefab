@@ -123,6 +123,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
     garbageType: 2
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 9d075a4f91efefa4090162d4da8d4fb0, type: 3}
     displayName: Sock
     wrongBinExplanation: fabric materials can be reused or recycled.

@@ -123,6 +123,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
     garbageType: 1
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 64ba27ee1aca07847883258241e8f157, type: 3}
     displayName: Cardboard
     wrongBinExplanation: cardboard can be broken down and reused.
