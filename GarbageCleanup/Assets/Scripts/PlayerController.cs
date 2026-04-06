@@ -36,12 +36,15 @@ public class PlayerController : MonoBehaviour
 
     [Header("Animation")]
     public Animator poleAnimator;
+    public Animator guideAnimator;
 
     [Header("Inventory")]
     public InventoryController inventory;
 
     [Header("Bins")]
     public LayerMask binLayer;
+    private GameObject heldBin;
+    private bool isHoldingBin;
 
     // Start is called before the first frame update
     void Start()
@@ -49,8 +52,9 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         isPokerExtended = false;
-        
-        guideImage.SetActive(false);
+        isHoldingBin = false;
+
+        //guideImage.SetActive(false);
 
         // scoreText.text = $"Current Garbage: {score}";
     }
@@ -59,10 +63,10 @@ public class PlayerController : MonoBehaviour
     {
         isGrounded = IsPlayerGrounded();
 
-        // On left click, check if player is close enough to garbage
-        if (Input.GetMouseButtonDown(0))
+        // On left click, check if player is close enough to garbage/bins and not holding a bin
+        if (Input.GetMouseButtonDown(0) && !isHoldingBin)
         {
-            CheckGarbage();
+            CheckGarbage("poker");
         }
 
         // Pole extending and retracting on right click
@@ -78,8 +82,6 @@ public class PlayerController : MonoBehaviour
 
                 // Extend poker range
                 pokerRange = 10f;
-                // Determine if the player should be grappled
-                //CheckGrapple();
             }
             else if (isPokerExtended && pokerCounter >= pokerCooldown)
             {
@@ -87,20 +89,40 @@ public class PlayerController : MonoBehaviour
                 isPokerExtended = !isPokerExtended;
                 pokerCounter = 0f;
 
-                // If the player was grappled, pull them toward the grapple point
-                //if (isPlayerGrappled)
-                //{
-                //    GrapplePull();
-                //}
-
                 // Reset poker range
                 pokerRange = 5f;
-                //isPlayerGrappled = false;
             }
         }
 
+        // On pressing E while looking at a bin, pick it up so the player can move it
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (!isHoldingBin) CheckGarbage("moveBin");
+            else if (isHoldingBin) // Put down the bin the player is holding
+            {
+                // Reset the held bin
+                heldBin.transform.SetParent(GameObject.Find("GarbageBins").transform);
+                heldBin.GetComponent<BoxCollider>().enabled = true;
+
+                // Place the bin nicely on the ground
+                heldBin.GetComponent<BinController>().MagnetToGround(ground);
+
+                // Reset variables related to holding a bin
+                heldBin = null;
+                isHoldingBin = false;
+            }
+        }
+
+        // Bin moving handling
+        if (isHoldingBin)
+        {
+            // Keep bin rotated to look at the player while in front of them
+            heldBin.transform.LookAt(gameObject.transform);
+            heldBin.transform.Rotate(0, 90, 0);
+        }
+
         // Jumping code
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && rb.velocity.y <= 1f)
         {
             Jump();
             isGrounded = false;
@@ -133,26 +155,45 @@ public class PlayerController : MonoBehaviour
 
     private bool IsPlayerGrounded()
     {
-        if (Physics.BoxCast(transform.position, boxSize, -transform.up, transform.rotation, 1f, ground))
+        // Start above the players feet 
+        Vector3 rayStart = transform.position + Vector3.up * 0.1f;
+
+        float rayDistance = 1.15f;
+
+        if (Physics.Raycast(rayStart, Vector3.down, out RaycastHit hit, rayDistance, ground))
         {
-            return true;
+            float slope = Vector3.Angle(hit.normal, Vector3.up);
+
+            return slope < 80f;
         }
 
+        Debug.Log("NO GROUND HIT");
         return false;
     }
 
     private void Jump()
     {
+        // Get current velocity
+        Vector3 velocity = rb.velocity;
+
+        // If already going up remove upward force first
+        if (velocity.y > 0)
+        {
+            velocity.y = 0f;
+        }
+
+        rb.velocity = velocity;
+
         // Make the player jump
         rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
     }
 
-    private void CheckGarbage()
+    private void CheckGarbage(string interaction)
     {
         RaycastHit hit;
 
         // Raycast forward to find garbage
-        if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, pokerRange, garbage))
+        if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, pokerRange, garbage) && interaction.Equals("poker"))
         {
             if (inventory == null)
             {
@@ -173,21 +214,52 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, pokerRange, binLayer))
         {
             var bin = hit.collider.GetComponentInParent<BinController>();
-            if (bin != null)
+            if (interaction.Equals("poker"))
             {
-                bin.TryDeposit(inventory);
+                // Determine which thing to do when looking at the bin
+                if (bin != null)
+                {
+                    bin.TryDeposit(inventory);
+                }
+                else
+                {
+                    Debug.Log("[Bin] Hit a bin object but no BinController found.");
+                }
             }
-            else
+            else if (interaction.Equals("moveBin"))
             {
-                Debug.Log("[Bin] Hit a bin object but no BinController found.");
+                // pick up bin if not already holding one
+                if (!isHoldingBin)
+                {
+                    // Set gameobject to picked up bin
+                    heldBin = bin.gameObject;
+
+                    // Disable collision
+                    heldBin.GetComponent<BoxCollider>().enabled = false;
+
+                    // Move bin in front of player
+                    heldBin.transform.SetParent(gameObject.transform);
+                    //heldBin.transform.position += new Vector3(0, 1, 0);
+
+                    // Toggle holding the bin
+                    isHoldingBin = !isHoldingBin;
+                }
             }
         }
     }
 
     private void ToggleGuide()
     {
-        isGuideEnabled = !isGuideEnabled;
-        guideImage.SetActive(isGuideEnabled);
+        if (!isGuideEnabled)
+        {
+            guideAnimator.Play("GuideEnable");
+            isGuideEnabled = true;
+        }
+        else if (isGuideEnabled)
+        {
+            guideAnimator.Play("GuideDisable");
+            isGuideEnabled = false;
+        }
     }
 }
 

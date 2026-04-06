@@ -168,3 +168,5 @@ MonoBehaviour:
   data:
     garbageType: 0
     icon: {fileID: 21300000, guid: ad4d8b76e6acbd141a625d3b1cb66ab0, type: 3}
+    displayName: Dirty Pizza Box
+    wrongBinExplanation: food and grease contamination make it unsuitable for recycling.
