@@ -217,14 +217,21 @@ public class PlayerController : MonoBehaviour
             }
             else if (interaction.Equals("namePopup"))
             {
-                string garbageNameTrimmed = hit.collider.gameObject.name;
-                Debug.Log("Length: " + garbageNameTrimmed.Length);
-                Debug.Log("Char at length - 1: " + garbageNameTrimmed.);
-                Debug.Log("Char at length - 7: " + garbageNameTrimmed.Length);
-                //garbageNameTrimmed.Remove(garbageNameTrimmed.Length - 1, garbageNameTrimmed.Length - 7);
+                if (hit.collider.gameObject.tag == "Garbage")
+                {
+                    string garbageNameTrimmed = hit.collider.gameObject.name;
+                    //Debug.Log("Length: " + garbageNameTrimmed.Length);
+                    //Debug.Log("Char at length - 1: " + garbageNameTrimmed.);
+                    //Debug.Log("Char at length - 7: " + garbageNameTrimmed.Length);
+                    //garbageNameTrimmed.Remove(garbageNameTrimmed.Length - 1, garbageNameTrimmed.Length - 7);
 
-                garbageNamePopup.text = garbageNameTrimmed;
+                    garbageNamePopup.text = garbageNameTrimmed;
+                }
             }
+        }
+        else
+        {
+            garbageNamePopup.text = " ";
         }
 
         // If we didn't hit garbage, we can check bins with the same left click
