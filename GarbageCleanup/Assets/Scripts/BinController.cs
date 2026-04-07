@@ -43,6 +43,13 @@ public class BinController : MonoBehaviour
         {
             Debug.Log($"SUCCESS! Deposited {currentType.Value} into {acceptedType} bin.");
             ScoreManager.Instance.AddCorrect(currentType.Value);
+
+            // Add 2 seconds of time when correct
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.AddTime(2f);
+            }
+
             confettiParticle.Play();
         }
 
@@ -53,6 +60,12 @@ public class BinController : MonoBehaviour
 
             // Subtract score / track wrong placement
             ScoreManager.Instance.AddWrong(currentType.Value);
+
+            // Decrease 1 second of time when incorrect
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.RemoveTime(1f);
+            }
 
             // Make sure we actually have data + popup system exists before trying to use it
             if (currentData != null && FactPopupUI.Instance != null)

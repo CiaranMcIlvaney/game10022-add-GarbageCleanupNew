@@ -7,15 +7,24 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    // ALPHA ONLY
-    // Keep the timer at 3 minutes for the alpha test
+    public static GameManager Instance;
+
+    // Keep the timer at 3 minutes for the alpha/beta test
     [Header("Game Time")]
+
     private float maxTime = 180f;
+
     [field: SerializeField] private float currentTimeRemaining;
+
     public TextMeshProUGUI timerText;
 
     [Header("Lighting")]
     public Light skyLight;
+
+    void Awake()
+    {
+        Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +42,7 @@ public class GameManager : MonoBehaviour
         // End game if timer runs out
         if (currentTimeRemaining <= 0)
         {
+            currentTimeRemaining = 0;
             SceneManager.LoadScene("GameEnd");
         }
 
@@ -46,5 +56,22 @@ public class GameManager : MonoBehaviour
 
         // Change light rotation based on the current time of day
         skyLight.transform.Rotate(Vector3.left, 0.5f * Time.deltaTime);
+    }
+
+    // Add time function when correct deposits
+    public void AddTime(float amount)
+    {
+        currentTimeRemaining += amount;
+    }
+
+    // Decrease time function for incorrect deposits
+    public void RemoveTime(float amount)
+    {
+        currentTimeRemaining -= amount;
+
+        if (currentTimeRemaining < 0)
+        {
+            currentTimeRemaining = 0;
+        }
     }
 }
